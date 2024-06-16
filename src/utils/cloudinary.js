@@ -1,8 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import fs from "fs";
 
-import { v2 as cloudinary } from "cloudinary";
-
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -21,7 +19,7 @@ const uploadOnCloudinary = async (localFilePath) => {
 
     return response;
   } catch (error) {
-    fs.unlinkSync(localFilePath); //remove the locallysaved temporary file as the upload operation to cloudinary failed
+    fs.unlinkSync(localFilePath); //remove the locally saved temporary file as the upload operation to cloudinary failed
     return null;
   }
 };
